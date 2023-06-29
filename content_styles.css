@@ -49,8 +49,8 @@ input[name="cart_quantity[]"] {
 
 button.btn-up {
   position: fixed;
-  bottom: 112px;
-  right: 36px;
+  bottom: 78px;
+  right: 24px;
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -63,4 +63,16 @@ button.btn-up {
   padding-bottom: 4px;
   color: #28a0ff;
   background: #9dd4ff8a;
+  box-shadow: 2px 2px 3px #999;
+}
+
+a.float {
+  width: 50px;
+  height: 50px;
+  bottom: 17px;
+  right: 24px;
+}
+i.my-float {
+  margin-top: 11px;
+  margin-left: 2px;
 }
