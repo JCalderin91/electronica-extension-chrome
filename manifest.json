@@ -1,0 +1,16 @@
+{
+  "name": "Electronica divisa",
+  "description": "Mostrar los precios de electronica.com en divisas extrangeras",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://electronica.com.ve/*"],
+      "css": ["content_styles.css"],
+      "js": ["content_script.js"]
+    }
+  ]
+}
