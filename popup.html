@@ -4,9 +4,62 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Extencion</title>
+    <title>Extension</title>
+    <link rel="stylesheet" href="content_styles.css" />
+    <style>
+      .container {
+        min-width: 200px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        background: #3b3b3b;
+        color: white;
+      }
+      #refresh-btn {
+        border: none;
+        background: transparent;
+      }
+      #svg {
+        fill: #5bff5b;
+        transition: 0.3s all ease-in-out;
+      }
+      #svg.loading {
+        fill: #0ac204;
+        animation: spin 1s infinite ease-in-out;
+      }
+      @keyframes spin {
+        100% {
+          transform: rotate(0deg) scale(1);
+        }
+        100% {
+          transform: rotate(359deg) scale(1.2);
+        }
+      }
+    </style>
   </head>
   <body>
-    <h4>Esta es mi Extencion</h4>
+    <div class="container">
+      <h4 id="tag">It's no work</h4>
+      <button id="refresh-btn">
+        <svg
+          id="svg"
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          class="bi bi-arrow-repeat"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"
+          />
+          <path
+            fill-rule="evenodd"
+            d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"
+          />
+        </svg>
+      </button>
+    </div>
+    <script src="popup.js"></script>
   </body>
 </html>
