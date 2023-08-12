@@ -1,6 +1,6 @@
 const tag = document.getElementById("tag");
 const svg = document.getElementById("svg");
-const quantity = document.getElementById("quantity");
+const quantity = document.querySelector("#quantity input");
 
 const getDollar = () =>
   fetch("https://www.bcv.org.ve/")
@@ -21,7 +21,7 @@ const updateInterface = async () => {
   dollarAmount *= Number(quantity.value) || 1;
 
   setTimeout(() => {
-    tag.innerHTML = `BCV: ${dollarAmount.toFixed(3)}`;
+    tag.innerHTML = `${dollarAmount.toFixed(3)} Bs.`;
     svg.classList.remove("loading");
   }, 500);
 };
