@@ -1,5 +1,6 @@
 const tag = document.getElementById("tag");
 const svg = document.getElementById("svg");
+const quantity = document.getElementById("quantity");
 
 const getDollar = () =>
   fetch("https://www.bcv.org.ve/")
@@ -14,13 +15,15 @@ const updateInterface = async () => {
   tag.innerHTML = "Consulting";
   svg.classList.add("loading");
   const dollar = await getDollar();
-  setTimeout(() => {
-    svg.classList.remove("loading");
-  }, 1000);
 
-  tag.innerHTML = `BCV: ${Number(
-    dollar.replaceAll(" ", "").replaceAll(",", ".")
-  ).toFixed(3)}`;
+  let dollarAmount = Number(dollar.replaceAll(" ", "").replaceAll(",", "."));
+
+  dollarAmount *= Number(quantity.value) || 1;
+
+  setTimeout(() => {
+    tag.innerHTML = `BCV: ${dollarAmount.toFixed(3)}`;
+    svg.classList.remove("loading");
+  }, 500);
 };
 
 updateInterface();
@@ -30,3 +33,20 @@ const refreshBtn = document.getElementById("refresh-btn");
 refreshBtn.addEventListener("click", () => {
   updateInterface();
 });
+
+function debounce(func, timeout = 300) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, timeout);
+  };
+}
+
+quantity.addEventListener(
+  "input",
+  debounce(() => {
+    updateInterface();
+  }, 2000)
+);
