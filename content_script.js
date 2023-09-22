@@ -1,5 +1,5 @@
 let body = document.getElementsByTagName("body")[0];
-const dollarPrice = 24.2;
+const dollarPrice = 34;
 let amounts = [
   ...body.innerHTML.matchAll(
     /Bs\. &nbsp;((\d)*)+([\.]\d{1,3})*(([\,]\d{1,2})?)/g
